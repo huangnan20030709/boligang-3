@@ -22,8 +22,10 @@ const prop = defineProps(["info", "option"]);
 
 const chart111 = ref();
 onMounted(() => {
-  let mychart = echarts.init(chart111.value);
-  mychart.setOption(prop.option);
+  nextTick(() => {
+    let mychart = echarts.init(chart111.value);
+    mychart.setOption(prop.option);
+  });
 });
 </script>
 

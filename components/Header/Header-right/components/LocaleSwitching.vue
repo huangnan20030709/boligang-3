@@ -44,7 +44,9 @@ const setDropDownVisible = () => {
 };
 
 onMounted(() => {
-  fetchLocale();
+  nextTick(() => {
+    fetchLocale();
+  });
 });
 </script>
 

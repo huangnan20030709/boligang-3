@@ -136,11 +136,6 @@ const { chartOption } = useChartOption((isDark) => {
 });
 
 //引入echarts
-
-//组件挂载完毕初始化图形图标
-onMounted(() => {
-  //设置配置项
-});
 </script>
 
 <style scoped lang="scss"></style>

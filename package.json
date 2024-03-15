@@ -5,7 +5,7 @@
   "scripts": {
     "build:prod": "nuxt build --mode prod",
     "build:dev": "nuxt build --mode dev",
-    "dev": "nuxt dev --mode dev",
+    "dev": "nuxt dev --mode dev --open",
     "prod": "nuxt dev --mode prod",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

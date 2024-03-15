@@ -117,8 +117,6 @@ const editUserInfo = () => {
     },
   });
 };
-
-onMounted(() => {});
 </script>
 
 <style scoped>

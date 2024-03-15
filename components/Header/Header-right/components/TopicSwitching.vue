@@ -25,7 +25,9 @@ const isDay = computed(() => {
 });
 
 onMounted(() => {
-  topicStore.fetchLocalStorage();
+  nextTick(() => {
+    topicStore.fetchLocalStorage();
+  });
 });
 </script>
 

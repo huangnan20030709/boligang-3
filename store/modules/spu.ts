@@ -24,7 +24,7 @@ export default defineStore("spu", () => {
 
   //获取根据id商品详情信息
   const getDetail = async (id: string) => {
-    let res = await useHttpGet("spu.detail", "/goods", {
+    let res = useHttpGet("spu.detail", "/goods", {
       query: { id },
       server: false,
     });
