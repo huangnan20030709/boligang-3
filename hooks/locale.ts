@@ -20,7 +20,7 @@ export default function useLocale() {
   };
 
   const fetchLocale = () => {
-    changeLocale(window.localStorage.getItem("locale") || "zh-CN", true);
+    changeLocale(window.localStorage.getItem("locale") || "en-US", true);
   };
   return {
     currentLocale,
