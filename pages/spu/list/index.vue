@@ -61,8 +61,6 @@ import GoodsCard from "./components/GoodsCard.vue";
 import useSpuStore from "@/store/modules/spu";
 const spuStore = useSpuStore();
 
-await spuStore.getCategoryList();
-await spuStore.getCategoryById("1005000");
 const categoryList = computed(() => {
   return spuStore.categoryList;
 });
@@ -76,14 +74,17 @@ const categoryInfo = computed(() => {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-
-useHead({
-  title: "全部商品",
-  meta: [
-    { name: "keywords", content: "全部商品-arco design,nuxt3,ssr,小楠同学" },
-    { name: "description", content: "全部商品-基于vue3的nuxt3框架的项目" },
-  ],
-});
+onMounted(() => {
+  await spuStore.getCategoryList();
+  await spuStore.getCategoryById("1005000");
+}),
+  useHead({
+    title: "全部商品",
+    meta: [
+      { name: "keywords", content: "全部商品-arco design,nuxt3,ssr,小楠同学" },
+      { name: "description", content: "全部商品-基于vue3的nuxt3框架的项目" },
+    ],
+  });
 
 definePageMeta({
   path: "/spu/list",
