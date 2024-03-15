@@ -8,7 +8,7 @@ export default defineStore("spu", () => {
 
   // action 获取所有导航数据的方法
   const getCategoryList = async () => {
-    const res: any = await useFetch("/api/spu/categoryList");
+    const res: any = await useFetch("/api/spu/categoryList", { lazy: true });
 
     categoryList.value = res.data.value.result;
   };
@@ -17,7 +17,7 @@ export default defineStore("spu", () => {
   // 正在展示的单个菜单的数据
   const categoryInfo = ref([]);
   const getCategoryById = async (id: string) => {
-    const res: any = await useFetch("/api/spu/getCategoryById", { query: { id } });
+    const res: any = await useFetch("/api/spu/getCategoryById", { query: { id }, lazy: true });
 
     categoryInfo.value = res.data.value.result;
   };

@@ -7,8 +7,6 @@
 <script setup>
 import { onMounted } from "vue";
 
-const route = useRoute();
-
 onMounted(() => {
   nextTick(async () => {
     // let res = await useGetGithubUserList();

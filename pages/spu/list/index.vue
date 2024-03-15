@@ -57,8 +57,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useTitle } from "@vueuse/core";
-
 import GoodsCard from "./components/GoodsCard.vue";
 import useSpuStore from "@/store/modules/spu";
 const spuStore = useSpuStore();
