@@ -1,21 +1,20 @@
 <template>
   <div style="text-align: left">
-    <!-- <a-input-search :style="{ width: '320px' }" placeholder="标题关键词或SpuId" search-button @search="headerSearchHandler">
+    <a-input-search :style="{ width: '320px' }" placeholder="标题关键词或SpuId" search-button @search="headerSearchHandler">
       <template #button-icon>
         <icon-search />
       </template>
       <template #button-default>点击搜索</template>
-    </a-input-search> -->
-    <!-- <a-tabs size="large" @change="tabChangeHandler">
+    </a-input-search>
+    <a-tabs size="large" @change="tabChangeHandler">
       <a-tab-pane :title="item.name" v-for="item in categoryList" :key="item.id"> </a-tab-pane>
-    </a-tabs> -->
-
-    <!-- <div style="text-align: right">
+    </a-tabs>
+    <div style="text-align: right">
       <a-button @click="updateBtnCli" status="success" type="primary" style="margin-right: 50px"
         ><iconUpload style="margin-right: 5px"></iconUpload> 更新商品数据</a-button
       >
-    </div> -->
-    <!-- 
+    </div>
+
     <a-table :columns="columns" :data="showTableData" style="margin-top: 20px">
       <template #picture="{ record, rowIndex }">
         <a-image style="border-radius: 10px; cursor: zoom-in" width="65" :src="record.picture" />
@@ -27,6 +26,7 @@
 
       <template #id="{ record, rowIndex }">
         <template v-if="searchKeyword && (record.id + '').indexOf(searchKeyword) != -1">
+          <!-- <span :class="{ blink: isSearch }">{{ record.id }}</span> -->
 
           <template v-for="item in getHtml(record.id + '', searchKeyword)">
             <span v-html="item"></span>
@@ -51,10 +51,11 @@
           <iconEdit style="margin-right: 5px"></iconEdit> 在修改页修改
         </a-button>
       </template>
-    </a-table> -->
+    </a-table>
   </div>
 </template>
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import useSpuStore from "@/store/modules/spu";
 import findItem from "../hooks/findItem.ts";
 const spuStore = useSpuStore();
@@ -176,20 +177,22 @@ const getHtml = (str, char) => {
   return res;
 };
 
-if (spuStore.categoryList.length == 0) {
-  // await spuStore.getCategoryList();
-}
-// await spuStore.getCategoryById("1005000");
-// tableData.value = spuStore.categoryInfo.children.reduce((arr, item) => {
-//   let arr1 = item.goods.reduce((initArr, ele) => {
-//     ele.price = parseFloat(ele.price);
-//     initArr.push(ele);
-//     return initArr;
-//   }, []);
-//   arr = [...arr, ...arr1];
-//   return arr;
-// }, []);
-// showTableData.value = [...tableData.value];
+onMounted(async () => {
+  if (spuStore.categoryList.length == 0) {
+    await spuStore.getCategoryList();
+  }
+  await spuStore.getCategoryById("1005000");
+  tableData.value = spuStore.categoryInfo.children.reduce((arr, item) => {
+    let arr1 = item.goods.reduce((initArr, ele) => {
+      ele.price = parseFloat(ele.price);
+      initArr.push(ele);
+      return initArr;
+    }, []);
+    arr = [...arr, ...arr1];
+    return arr;
+  }, []);
+  showTableData.value = [...tableData.value];
+});
 </script>
 
 <style>
