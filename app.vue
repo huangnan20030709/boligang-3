@@ -12,7 +12,6 @@ const router = useRouter();
 onMounted(() => {
   nextTick(async () => {
     // let res = await useGetGithubUserList();
-    // console.log(ress);
 
     const user = useUserInfo();
     let res = window.localStorage.getItem("user");
