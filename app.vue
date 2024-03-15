@@ -7,6 +7,8 @@
 <script setup>
 import { onMounted } from "vue";
 
+const router = useRouter();
+
 onMounted(() => {
   nextTick(async () => {
     // let res = await useGetGithubUserList();
@@ -15,6 +17,10 @@ onMounted(() => {
     const user = useUserInfo();
     let res = window.localStorage.getItem("user");
     user.value = JSON.parse(res);
+
+    setTimeout(() => {
+      router.replace("/login");
+    }, 200);
   });
 });
 </script>
