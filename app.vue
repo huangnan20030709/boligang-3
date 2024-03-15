@@ -16,7 +16,6 @@ onMounted(() => {
     const user = useUserInfo();
     let res = window.localStorage.getItem("user");
     user.value = JSON.parse(res);
-    router.replace("/login");
   });
 });
 </script>

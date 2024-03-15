@@ -31,8 +31,8 @@ definePageMeta({
     const user = useUserInfo();
 
     if (user.value) {
-      Message.info({ content: "已登录，请勿重复登录" });
-      abortNavigation("已登录，请勿重复登录");
+      Message.info({ content: "已登录，请勿重复登录-" });
+      abortNavigation("-已登录");
     }
 
     return true;

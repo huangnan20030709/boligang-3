@@ -62,6 +62,7 @@ import useSpuStore from "@/store/modules/spu";
 const spuStore = useSpuStore();
 
 await spuStore.getCategoryList();
+await spuStore.getCategoryById("1005000");
 const categoryList = computed(() => {
   return spuStore.categoryList;
 });
@@ -73,7 +74,7 @@ const tabChangeHandler = (id: string) => {
 const categoryInfo = computed(() => {
   return spuStore.categoryInfo;
 });
-await spuStore.getCategoryById("1005000");
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 useHead({
