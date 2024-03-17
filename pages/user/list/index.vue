@@ -1,16 +1,19 @@
 <template>
-  <Transition mode="out-in">
-    <Suspense>
-      <template #fallback>
-        <div style="height: 100%; display: flex; justify-content: center; align-items: center">
-          <ASpin :size="120">
-            <template #icon> <icon-sync /> </template
-          ></ASpin>
-        </div>
-      </template>
-      <Layout></Layout>
-    </Suspense>
-  </Transition>
+  <client-only>
+    <Transition mode="out-in">
+      <Suspense>
+        <template #fallback>
+          <div style="height: 100%; display: flex; justify-content: center; align-items: center">
+            <ASpin :size="120">
+              <template #icon> <icon-sync /> </template>
+            </ASpin>
+          </div>
+        </template>
+
+        <Layout></Layout>
+      </Suspense>
+    </Transition>
+  </client-only>
 </template>
 <script setup lang="ts">
 import { defineAsyncComponent } from "vue";
@@ -38,3 +41,4 @@ definePageMeta({
   width: 100px;
 }
 </style>
+import type { ClientOnly } from "#build/components";

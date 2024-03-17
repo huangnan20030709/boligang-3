@@ -1,5 +1,5 @@
 export default defineNuxtPlugin((nuxtApp: any) => {
-  console.log(nuxtApp);
+  // console.log(nuxtApp);
 
   return {
     provide: {

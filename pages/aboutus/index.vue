@@ -30,6 +30,10 @@
         {{ $t("about.4-text3") }}
       </a-typography-paragraph>
     </a-typography>
+    <hr />
+    <p>{{ comp }}</p>
+    <p>{{ num }}</p>
+    <p>{{ a }}</p>
   </div>
 </template>
 
@@ -40,6 +44,34 @@ useHead({
 });
 
 // definePageMeta({});
+
+const comp = computed(() => {
+  try {
+    // await useHttpGet("/list");
+  } catch (e) {}
+  return 1;
+});
+// console.log(comp.value);
+
+let num = ref(21);
+onNuxtReady(() => {
+  // setInterval(() => {
+  // num.value++;
+  // }, 500);
+});
+
+// watch(num, (n) => {
+//   console.log(n + "---");
+// });
+
+watchEffect(() => {
+  console.log(num.value, 7778);
+});
+
+let prop = withDefaults(defineProps<{ a?: string }>(), {
+  a: "7",
+});
+console.log(prop);
 </script>
 
 <style scoped>

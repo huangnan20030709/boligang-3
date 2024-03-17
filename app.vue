@@ -14,7 +14,7 @@ onMounted(() => {
     // let res = await useGetGithubUserList();
 
     const user = useUserInfo();
-    let res = window.localStorage.getItem("user");
+    let res = window.localStorage.getItem("user") || {};
     user.value = JSON.parse(res);
   });
 });

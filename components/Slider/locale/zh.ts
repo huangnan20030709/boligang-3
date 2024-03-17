@@ -27,4 +27,6 @@ export default {
   "app.slider.aboutus": "关于我们",
 
   "app.slider.map": "实时地图",
+
+  "app.slider.like": "为项目点赞",
 };

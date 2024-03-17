@@ -1,9 +1,16 @@
 // import type { RouteMiddleware } from "vue-router";
 export default defineNuxtRouteMiddleware(async (to: any, from: any) => {
   const user: any = useState("user");
+  const token = useCookie("token");
 
-  if (!window) {
-    return "/";
+  const route = useRoute();
+
+  if (!token.value) {
+    if (process.client) {
+      Message.error("请先登录");
+    }
+
+    return navigateTo("/login?from=" + route.fullPath);
   }
 
   if (!user?.value?.name) {

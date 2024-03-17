@@ -15,6 +15,7 @@
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@intlify/unplugin-vue-i18n": "^2.0.0",
     "@pinia/nuxt": "^0.5.1",
+    "@upstash/redis": "^1.28.4",
     "@vue/runtime-dom": "^3.4.21",
     "coordtransform": "^2.1.2",
     "dayjs": "^1.11.10",

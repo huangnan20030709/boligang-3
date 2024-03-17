@@ -27,4 +27,6 @@ export default {
   "app.slider.aboutus": "About Us",
 
   "app.slider.map": "Map",
+
+  "app.slider.like": "Like the Proj",
 };

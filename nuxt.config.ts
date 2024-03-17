@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   css: ["~/assets/styles/base.scss"],
   build: { transpile: [/echarts/] },
   app: {
@@ -31,10 +31,5 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ["apis"],
-  },
-  ssr: true,
-
-  routeRules: {
-    "/datascreen": {},
   },
 });
