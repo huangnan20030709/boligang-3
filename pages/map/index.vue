@@ -1,11 +1,7 @@
 <template>
   <div class="content" style="color: black">
     <div class="search-box">
-      <input
-        v-model="input"
-        placeholder="请输入内容"
-        id="tipinput"
-        style="
+      <input v-model="input" placeholder="请输入内容" id="tipinput" style="
           color: black;
           border: 1px solid blue;
           width: 220px;
@@ -46,10 +42,11 @@ export default {
     };
   },
   mounted() {
-    this.initMap();
+    this.$nextTick(() => {
+      this.initMap();
+    })
   },
   created() {
-    this.initMap();
   },
   methods: {
     initMap() {
@@ -202,18 +199,22 @@ export default {
   justify-content: flex-start;
   align-items: center;
   height: 50px;
+
   .label {
     width: 100px;
   }
 }
+
 .content {
   position: relative;
 }
+
 #panel {
   position: absolute;
   top: 450px;
   right: 280px;
 }
+
 #map-container {
   overflow: hidden;
   width: 95%;

@@ -5,14 +5,13 @@
     <a-form :model="form" :layout="layout" @submit="onFormSubmit">
       <a-form-item field="name">
         <a-input v-model="form.name" :placeholder="$t('login.form.username.placeholder')">
-          <template #prefix> <icon-user /> </template
-        ></a-input>
+          <template #prefix> <icon-user /> </template></a-input>
       </a-form-item>
 
       <a-form-item field="post">
-        <a-input-password v-model="form.post" placeholder="Please enter something" :defaultVisibility="true" allow-clear>
-          <template #prefix> <icon-lock /> </template
-        ></a-input-password>
+        <a-input-password v-model="form.post" placeholder="Please enter something" :defaultVisibility="true"
+          allow-clear>
+          <template #prefix> <icon-lock /> </template></a-input-password>
       </a-form-item>
 
       <a-form-item field="remmemberPassword">
@@ -57,8 +56,9 @@ let user2 = {
 };
 
 const errMessage = ref("");
-const { setUserInfo } = useUserInfo();
 const onFormSubmit = () => {
+  const user = useState("user");
+
   if (form.name != "huangnan") {
     errMessage.value = "账号错误，应为‘huangnan’";
     return;
@@ -68,13 +68,12 @@ const onFormSubmit = () => {
     return;
   }
 
-  const user = useState("user");
   if (Math.random() > 0.5) {
     user.value = user1;
-    window.localStorage.setItem("user", JSON.stringify(user.value));
+    window.localStorage.setItem("user", JSON.stringify(user1));
   } else {
     user.value = user2;
-    window.localStorage.setItem("user", JSON.stringify(user.value));
+    window.localStorage.setItem("user", JSON.stringify(user2));
   }
   const token = useCookie("token");
   token.value = "dyh1216";
@@ -110,6 +109,7 @@ const noDevforgetPassword = () => {
   font-size: 24px;
   margin-bottom: 35px;
 }
+
 .login-form-error-msg {
   color: red;
   margin-bottom: 15px;

@@ -5,15 +5,13 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-
 const router = useRouter();
 
 onMounted(() => {
   nextTick(async () => {
     // let res = await useGetGithubUserList();
 
-    const user = useUserInfo();
+    const user = useState("user");
     let res = window.localStorage.getItem("user") || {};
     user.value = JSON.parse(res);
   });

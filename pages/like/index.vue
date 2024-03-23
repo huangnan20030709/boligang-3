@@ -98,9 +98,6 @@ onMounted(() => {
         getTableData()
     })
 })
-
-
-
 </script>
 
 <style scoped lang="scss">

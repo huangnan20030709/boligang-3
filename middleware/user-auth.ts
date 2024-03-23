@@ -3,14 +3,12 @@ export default defineNuxtRouteMiddleware(async (to: any, from: any) => {
   const user: any = useState("user");
   const token = useCookie("token");
 
-  const route = useRoute();
-
   if (!token.value) {
     if (process.client) {
       Message.error("请先登录");
     }
 
-    return navigateTo("/login?from=" + route.fullPath);
+    return navigateTo("/login?from=" + to.fullPath);
   }
 
   if (!user?.value?.name) {

@@ -4,7 +4,8 @@
 
     <div class="left">
       <div class="logo">
-        <img alt="logo" src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image" />
+        <img alt="logo"
+          src="//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/dfdba5317c0c20ce20e64fac803d52bc.svg~tplv-49unhts6dw-image.image" />
         <div class="logo-text">Arco Design Pro</div>
       </div>
 
@@ -14,8 +15,12 @@
     </div>
 
     <div class="right">
-      <div class="content"><Content></Content></div>
-      <div class="footer"><Footer></Footer></div>
+      <div class="content">
+        <Content></Content>
+      </div>
+      <div class="footer">
+        <Footer></Footer>
+      </div>
     </div>
   </div>
 </template>
@@ -28,7 +33,7 @@ import Banner from "./components/banner.vue";
 definePageMeta({
   layout: "login",
   middleware(to, from) {
-    const user = useUserInfo();
+    const user = useState("user")
 
     if (user.value) {
       Message.info({ content: "已登录，请勿重复登录-" });
@@ -48,10 +53,12 @@ onMounted(() => {
 .container {
   display: flex;
   height: 100vh;
+
   .left {
     flex: 35;
     width: 550px;
     background: linear-gradient(235deg, #1d2129 0%, #00308f 100%);
+
     .logo {
       display: flex;
       font-size: 20px;
@@ -70,11 +77,13 @@ onMounted(() => {
       margin-top: 235px;
     }
   }
+
   .right {
     flex: 65;
     display: flex;
     justify-content: center;
     align-items: center;
+
     .content {
       width: 340px;
     }
