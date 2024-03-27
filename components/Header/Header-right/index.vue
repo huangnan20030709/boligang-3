@@ -48,8 +48,9 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen();
 //
 
 const user = useState("user");
+const token = useCookie("token");
 
-const settingBtnHandler = () => {};
+const settingBtnHandler = () => { };
 
 const githubCli = () => {
   window.open("https://gitee.com/phoebe-amurensis/boligang");
@@ -63,7 +64,10 @@ const route = useRoute();
 
 const logout = () => {
   user.value = null;
+  token.value = null;
+  
   window.localStorage.removeItem("user");
+  window.localStorage.removeItem("token");
 
   router.push(route.path + "#" + Date.now());
 };
@@ -128,6 +132,7 @@ const editUserInfo = () => {
   justify-content: space-around;
   width: 400px;
 }
+
 .githubicon {
   cursor: pointer;
   cursor: pointer;

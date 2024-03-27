@@ -1,7 +1,7 @@
 <template>
   <div style="width: 400px; display: flex">
     <a-form :model="form" ref="formRef" layout="vertical" :rules="rules" @submit="handleSubmit">
-      <a-form-item field="avatar" label="用户照片">
+      <a-form-item field="avatar" label="用户头像">
         <a-upload list-type="picture-card" action="/" image-preview @progress="onProgress" />
       </a-form-item>
 
@@ -14,12 +14,8 @@
       </a-form-item>
 
       <a-form-item field="address" label="省市区">
-        <a-cascader
-          :options="addressData"
-          v-model="form.address"
-          :field-names="{ value: 'name', label: 'name' }"
-          placeholder="请选择省市区"
-          allow-clear />
+        <a-cascader :options="addressData" v-model="form.address" :field-names="{ value: 'name', label: 'name' }"
+          placeholder="请选择省市区" allow-clear />
       </a-form-item>
 
       <a-form-item field="detailAddress" label="详细地址">
@@ -29,7 +25,8 @@
       <a-form-item field="isRead">
         <a-checkbox v-model="form.isRead"> </a-checkbox>
         <span style="margin-left: 5px">
-          我已阅读并服从此 <a-link target="_blank" href="https://reg.163.com/agreement_mobile_wap.shtml?v=20171127"> 《协议条款》</a-link>
+          我已阅读并服从此 <a-link target="_blank" href="https://reg.163.com/agreement_mobile_wap.shtml?v=20171127">
+            《协议条款》</a-link>
         </span>
       </a-form-item>
 
@@ -46,8 +43,10 @@
 <script lang="ts" setup>
 import { ref, reactive } from "vue";
 import { Message } from "@arco-design/web-vue";
-import addressData from "../data/index.ts";
+import useUserStore from '@/store/modules/user'
+import addressData from "../data/index";
 const emit = defineEmits(["changeStep", "updateNewUser"]);
+const userStore = useUserStore()
 
 const formRef = ref();
 
@@ -122,17 +121,28 @@ const rules = {
   ],
 };
 
-const onProgress = (currentFile) => {
+const onProgress = (currentFile: any) => {
   form.avatar = currentFile.url;
 };
-
+//@ts-ignore
 const handleSubmit = ({ values, errors }) => {
+
   if (!errors) {
+    userStore.setNewUserInfo({
+      avatarUrl: 'https://avatars.githubusercontent.com/u/113844132?v=4',
+      name: form.name,
+      postbox: form.postbox,
+      address: form.address + form.detailAddress
+    })
     emit("changeStep", 2);
     emit("updateNewUser", form);
     Message.success({ content: "缓存新用户成功" });
   }
 };
+
+onMounted(() => {
+  userStore.setNewUserInfo({})
+})
 </script>
 
 <style scoped lang="scss"></style>

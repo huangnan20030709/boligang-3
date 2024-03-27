@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="login-form-title">{{ $t("login.form.title") }}</div>
-    <div class="login-form-error-msg">{{ errMessage }}</div>
     <a-form :model="form" :layout="layout" @submit="onFormSubmit">
       <a-form-item field="name">
         <a-input v-model="form.name" :placeholder="$t('login.form.username.placeholder')">
@@ -9,9 +8,8 @@
       </a-form-item>
 
       <a-form-item field="post">
-        <a-input-password v-model="form.post" placeholder="Please enter something" :defaultVisibility="true"
-          allow-clear>
-          <template #prefix> <icon-lock /> </template></a-input-password>
+        <a-input v-model="form.post" placeholder="Please enter postbox" :defaultVisibility="true" allow-clear>
+          <template #prefix> <icon-code-sandbox /> </template></a-input>
       </a-form-item>
 
       <a-form-item field="remmemberPassword">
@@ -26,7 +24,7 @@
       </a-form-item>
 
       <a-form-item>
-        <a-button style="width: 100%" @click="noDev">注册账号</a-button>
+        <a-button style="width: 100%" @click="noDev">已有账号</a-button>
       </a-form-item>
     </a-form>
   </div>
@@ -41,8 +39,8 @@ const route = useRoute();
 const layout = ref<any>("vertical");
 
 const form = reactive({
-  name: "huangnan",
-  post: "20030709",
+  name: "",
+  post: "",
   remmemberPassword: true,
 });
 
@@ -55,18 +53,17 @@ let user2 = {
   avatar: "https://avatars.githubusercontent.com/u/113844132?v=4",
 };
 
-const errMessage = ref("");
-const onFormSubmit = () => {
+const onFormSubmit = async () => {
+  if (form.name.trim() == '' || form.post.trim() == '') return Message.error({ content: '输入不能为空' })
+
+
   const user = useState("user");
 
-  if (form.name != "huangnan") {
-    errMessage.value = "账号错误，应为‘huangnan’";
-    return;
-  }
-  if (form.post != "20030709") {
-    errMessage.value = "密码错误，应为‘20030709’";
-    return;
-  }
+  let res = await userLoginApi({ name: form.name.trim(), postbox: form.post.trim() })
+
+  if (res.data.value.code == 200) {
+    Message.success({ id: "loginSuccess", content: '登录成功欢迎您---' + res.data.value.data.name })
+  } else return Message.error({ content: 'name或postbox错误' })
 
   if (Math.random() > 0.5) {
     user.value = user1;
@@ -77,13 +74,11 @@ const onFormSubmit = () => {
   }
   const token = useCookie("token");
   token.value = "dyh1216";
+  window.localStorage.setItem('token', token.value)
 
   router.push(route.query.from ? route.query.from : "/");
 
-  Message.success({
-    id: "loginSuccess",
-    content: "登录成功，感谢您使用Arco Design Pro",
-  });
+
 };
 
 useEnterEvent(() => {
@@ -91,10 +86,7 @@ useEnterEvent(() => {
 });
 
 const noDev = () => {
-  Message.info({
-    id: "noDev",
-    content: "客官请稍等，模块开发中...",
-  });
+  router.push('/createuserlist')
 };
 const noDevforgetPassword = () => {
   Message.info({
@@ -115,4 +107,5 @@ const noDevforgetPassword = () => {
   margin-bottom: 15px;
   height: 15px;
 }
-</style>
+</style>import type data from "~/pages/user/createuser/data";import type data from "~/pages/user/createuser/data";
+import type data from "~/pages/user/createuser/data";

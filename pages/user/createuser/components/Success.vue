@@ -12,6 +12,7 @@
       <template #extra>
         <a-space>
           <a-button type="primary" @click="navigatetoUserList">返回已有用户查看</a-button>
+          <a-button type="primary" @click="$router.push('/login')">去登录页登录</a-button>
         </a-space>
       </template>
     </a-result>
@@ -37,6 +38,15 @@ const navigatetoUserList = () => {
 
   router.push("/user/list");
 };
+
+onNuxtReady(async () => {
+  let res = await createUserApi(userStore.newUserInfo)
+  console.log(res);
+
+  if (res.data?.value?.code == 200) {
+    Message.success({ content: '创建用户成功，返回登录页面试试吧' })
+  }
+})
 </script>
 
 <style scoped lang="scss"></style>

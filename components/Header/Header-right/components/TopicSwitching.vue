@@ -1,6 +1,7 @@
 <template>
   <div>
-    <a-select :placeholder="text" @change="onTopicStoreChange" style="width: 105px; border: 1px solid rgb(22, 93, 255); color: rgb(22, 93, 255)">
+    <a-select :placeholder="text" @change="onTopicStoreChange"
+      style="width: 105px; border: 1px solid rgb(22, 93, 255); color: rgb(22, 93, 255)">
       <a-option value="day"><icon-check :class="{ isHidden: !isDay }" style="margin-right: 5px" />亮色模式</a-option>
       <a-option value="dark"> <icon-check :class="{ isHidden: isDay }" style="margin-right: 5px" />暗黑模式</a-option>
     </a-select>

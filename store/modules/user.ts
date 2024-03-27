@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
+import type { CreateUserInfoObj } from "../../apis/type/user";
 export default defineStore("user", {
   state: (): any => {
     return {
       userList: [],
+      newUserInfo: {},
     };
   },
   actions: {
@@ -12,7 +14,11 @@ export default defineStore("user", {
       this.userList = [...this.userList, ...(data.value?.items || [])];
       // this.userList = data.value?.items || [];
     },
+    setNewUserInfo(obj: CreateUserInfoObj) {
+      this.newUserInfo = obj;
+    },
   },
+
   getters: {
     maleList(): any {
       return this.userList.filter((item: any) => {

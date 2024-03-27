@@ -11,7 +11,7 @@ export default {
   "login.form.title": "Login to Arco design pro",
 
   "login.form.username": "Username",
-  "login.form.username.placeholder": "Please enter your username...",
+  "login.form.username.placeholder": "Please enter your user...",
 
   "login.form.password": "Password",
   "login.form.password.placeholder": "Please enter password",

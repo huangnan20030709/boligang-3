@@ -10,7 +10,8 @@
       </div>
       <div style="display: flex; justify-content: center; margin-top: 45px">
         <Info v-if="currentStep == 1" @changeStep="changeStep" @updateNewUser="updateNewUser"></Info>
-        <MailboxVerification v-else-if="currentStep == 2" @changeStep="changeStep" :newUser="newUser"></MailboxVerification>
+        <MailboxVerification v-else-if="currentStep == 2" @changeStep="changeStep" :newUser="newUser">
+        </MailboxVerification>
         <Success v-else :newUser="newUser"></Success>
       </div>
     </a-card>

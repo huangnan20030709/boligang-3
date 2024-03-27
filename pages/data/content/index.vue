@@ -1,4 +1,5 @@
 <template>
+
   <div style="margin: 10px 20px 0px 20px; text-align: left">
     <a-card style="width: 100%; border-radius: 5px; margin: 0px auto" :bordered="false">
       <h2>{{ $t("data.content.publicOpinionAnalysis") }}</h2>
@@ -44,6 +45,9 @@ import bar from "./components/bar.vue";
 import MyTable from "./components/MyTable.vue";
 import borkenline from "./components/borkenline.vue";
 
+const form = reactive({})
+
+
 const CardList = computed(() => {
   return [
     { color: "#F2F9FE", title: t("data.content.totalVisits"), number: 1216, compare: 121 },
@@ -53,7 +57,7 @@ const CardList = computed(() => {
   ];
 });
 
-const { option } = useOption(() => {
+const { option } = useOption((isdark) => {
   return {
     //你的代码
 
