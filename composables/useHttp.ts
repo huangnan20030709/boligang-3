@@ -1,5 +1,5 @@
 export const fetchConfig = {
-  baseURL: "http://pcapi-xiaotuxian-front-devtest.itheima.net",
+  baseURL: "https://pcapi-xiaotuxian-front-devtest.itheima.net",
   headers: {
     appid: "bdcc01ecc75dbbaaefce",
   },

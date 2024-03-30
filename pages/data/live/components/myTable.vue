@@ -1,16 +1,9 @@
 <template>
   <div>
-    <a-table
-      class="mt-4"
-      :columns="columns"
-      :data="data"
-      row-key="id"
-      :row-selection="{
-        type: 'checkbox',
-        showCheckedAll: true,
-      }"
-      :border="false"
-      :pagination="false">
+    <a-table class="mt-4" :columns="columns" :data="data" row-key="id" :row-selection="{
+      type: 'checkbox',
+      showCheckedAll: true,
+    }" :border="false" :pagination="false">
       <template #cover="{ record }">
         <div style="position: relative">
           <img width="120px" :src="record.cover" alt="" />
@@ -18,7 +11,8 @@
         </div>
       </template>
     </a-table>
-    <a-typography-text type="secondary" class="data-statistic-list-tip"> {{ $t("data.live.notVisible") }} </a-typography-text>
+    <a-typography-text type="secondary" class="data-statistic-list-tip"> {{ $t("data.live.notVisible") }}
+    </a-typography-text>
   </div>
 </template>
 
@@ -36,7 +30,7 @@ interface PreviewRecord {
 }
 const data: PreviewRecord[] = [
   {
-    cover: "http://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/c788fc704d32cf3b1136c7d45afc2669.png~tplv-uwbnlip3yd-webp.webp",
+    cover: "https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/c788fc704d32cf3b1136c7d45afc2669.png~tplv-uwbnlip3yd-webp.webp",
     name: "视频直播",
     duration: "00:05:19",
     id: "54e23ade",

@@ -158,7 +158,7 @@ const { chartOption } = useChartOption((isDark) => {
         right: 14,
         height: 14,
         borderColor: "transparent",
-        handleIcon: "image://http://p3-armor.byteimg.com/tos-cn-i-49unhts6dw/1ee5a8c6142b2bcf47d2a9f084096447.svg~tplv-49unhts6dw-image.image",
+        handleIcon: "image://https://p3-armor.byteimg.com/tos-cn-i-49unhts6dw/1ee5a8c6142b2bcf47d2a9f084096447.svg~tplv-49unhts6dw-image.image",
         handleSize: "40",
         handleStyle: {
           shadowColor: "rgba(0, 0, 0, 0.2)",
