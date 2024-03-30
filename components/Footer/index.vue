@@ -2,12 +2,8 @@
   <div class="container">
     <div class="content">
       <div class="logo">
-        <img
-          @click="imgcli"
-          style="cursor: pointer"
-          src="https://ydlunacommon-cdn.nosdn.127.net/1ed7a7858eabd4d407370a83d9209838.png"
-          alt=""
-          width="90px" />
+        <img @click="imgcli" style="cursor: pointer"
+          src="https://ydlunacommon-cdn.nosdn.127.net/1ed7a7858eabd4d407370a83d9209838.png" alt="" width="90px" />
       </div>
 
       <div class="info first">
@@ -85,7 +81,8 @@ const imgcli = () => {
 
 <style scoped lang="scss">
 .container {
-  background-color: rgb(245, 246, 247);
+  background-color: var(--color-bg-1);
+
   .content {
     height: 230px;
     display: flex;
@@ -97,6 +94,7 @@ const imgcli = () => {
       flex: 2;
       margin-left: 200px;
     }
+
     .info {
       height: 100%;
       flex: 1;
@@ -108,19 +106,23 @@ const imgcli = () => {
         margin-bottom: 15px;
         text-align: left;
       }
-      .text > li {
+
+      .text>li {
         color: rgb(160, 160, 160);
         font-size: 12px;
         margin-top: 5px;
         text-align: left;
       }
     }
-    .first > .top {
+
+    .first>.top {
       margin-bottom: 20px;
     }
   }
+
   .footer {
     margin-top: 10px;
+
     li {
       color: #777;
       margin-top: 2px;

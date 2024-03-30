@@ -46,14 +46,14 @@ onNuxtReady(async () => {
 definePageMeta({
   layout: "login",
   middleware(to, from) {
-    const user = useState("user")
+    // const user = useState("user")
 
-    if (user.value) {
-      Message.info({ content: "已登录，不可访问该页面-" });
-      abortNavigation("-已登录");
-    }
+    // if (user.value) {
+    //   Message.info({ content: "已登录，不可访问该页面-" });
+    //   abortNavigation("-已登录");
+    // }
 
-    return true;
+    // return true;
   },
 });
 </script>

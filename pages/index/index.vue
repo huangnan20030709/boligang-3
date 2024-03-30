@@ -31,19 +31,13 @@
       <div class="right">
         <a-space direction="vertical" fill>
           <R1></R1>
-          <a-carousel
-            indicator-type="slider"
-            :style="{
-              height: '240px',
-            }"
-            :default-current="2"
-            @change="handleChange">
+          <a-carousel indicator-type="slider" :style="{
+            height: '240px',
+          }" :default-current="2" @change="handleChange">
             <a-carousel-item v-for="image in images">
-              <img
-                :src="image"
-                :style="{
-                  width: '100%',
-                }" />
+              <img :src="image" :style="{
+            width: '100%',
+          }" />
             </a-carousel-item>
           </a-carousel>
           <R2></R2>
@@ -69,7 +63,7 @@ const { t } = useI18n();
 
 const type = ref("img");
 
-const handleChange = () => {};
+const handleChange = () => { };
 const images = ref([
   "//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/5cc3cd1d994b7ef9db6a1f619a22addd.jpg~tplv-49unhts6dw-image.image",
   "//p3-armor.byteimg.com/tos-cn-i-49unhts6dw/f256cbcc287139e191fecea9d255a1f0.jpg~tplv-49unhts6dw-image.image",
@@ -155,29 +149,33 @@ definePageMeta({ keepalive: true });
   width: 100%;
   height: 100%;
   background-color: rgb(242, 243, 244);
+
   .inner-box {
     margin: 10px 20px 0px 20px;
     display: flex;
     justify-content: space-between;
+
     .left {
       .top {
         margin-bottom: 20px;
       }
+
       .bottom {
         display: flex;
         justify-content: space-between;
       }
     }
+
     .right {
       margin-left: 20px;
-      .top {
-      }
-      .carousel {
-      }
-      .ads {
-      }
-      .help {
-      }
+
+      .top {}
+
+      .carousel {}
+
+      .ads {}
+
+      .help {}
     }
   }
 }

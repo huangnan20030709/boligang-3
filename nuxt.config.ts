@@ -2,7 +2,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   ssr: true,
-  css: ["~/assets/styles/base.scss"],
+  css: ["~/assets/styles/base.scss", "~/assets/styles/basic.css"],
   build: { transpile: [/echarts/] },
   app: {
     head: {

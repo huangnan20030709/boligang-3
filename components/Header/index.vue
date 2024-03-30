@@ -13,6 +13,7 @@ import HeaderRight from "./Header-right/index.vue";
 .header {
   display: flex;
   justify-content: space-between;
+  background-color: var(--color-bg-1);
 
   .header-right {
     margin-right: 50px;

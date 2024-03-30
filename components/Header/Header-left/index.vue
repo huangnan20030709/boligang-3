@@ -7,7 +7,7 @@
 
 <style scoped>
 .logo {
-  color: black;
+  color: var(--color-text-1);
   font-size: 24px;
   font-weight: bold;
   margin-left: 25px;

@@ -1,0 +1,21 @@
+body {
+  --color-bg-1: #fff;
+  --color-bg-2: #eee;
+
+  --color-text-1: #212121;
+  --color-text-2: #252525;
+  --color-text-3: #888;
+}
+body[arco-theme="dark"] {
+  --color-bg-1: #232324;
+  --color-bg-2: #323235;
+
+  --color-text-1: #fff;
+  --color-text-2: #ccc;
+  --color-text-3: #aaa;
+}
+
+body {
+  background-color: var(--color-bg-2);
+  color: var(--color-text-1);
+}

@@ -33,6 +33,8 @@ import Banner from "./components/banner.vue";
 definePageMeta({
   layout: "login",
   middleware(to, from) {
+    if (from.fullPath == '/createuserlist') return true;
+
     const user = useState("user")
 
     if (user.value) {
